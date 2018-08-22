@@ -5,6 +5,10 @@
 PyCharm Default Keymap  
 PyCharm3.0默认快捷键(翻译的)
 
+作者：欧薇娅
+链接：https://www.jianshu.com/p/b03a8d7b1719
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 #### 编辑类：
 
 	Ctrl + Space 基本的代码完成（类、方法、属性）  

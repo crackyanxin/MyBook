@@ -8,7 +8,7 @@
 
 **键值([*Key-Value*](http://baike.baidu.com/view/6728383.htm) )存储[数据库](http://baike.baidu.com/view/1088.htm)**
 
-　　这一类数据库主要会使用到一个[哈希表](http://baike.baidu.com/view/329976.htm) ，这个表中有一个特定的键和一个指针指向特定的数据。Key/value模型对于IT系统来说的优势在于简单、易部署。但是如果[DBA](http://baike.baidu.com/subview/67156/5112091.htm) 只对部分值进行查询或更新的时候，Key/value就显得效率低下了。[3]undefined (.sup-anchor name=sup-anchor)  举例如：Tokyo Cabinet/Tyrant, Redis, Voldemort, Oracle BDB.
+　　这一类数据库主要会使用到一个[哈希表](http://baike.baidu.com/view/329976.htm) ，这个表中有一个特定的键和一个指针指向特定的数据。Key/value模型对于IT系统来说的优势在于简单、易部署。但是如果[DBA](http://baike.baidu.com/subview/67156/5112091.htm) 只对部分值进行查询或更新的时候，Key/value就显得效率低下了。  举例如：Tokyo Cabinet/Tyrant, Redis, Voldemort, Oracle BDB.
 
 **列存储数据库。**
 
@@ -20,18 +20,23 @@
 
 **图形(Graph)数据库**
 
-　　图形结构的数据库同其他行列以及刚性结构的SQL数据库不同，它是使用灵活的图形模型，并且能够扩展到多个服务器上。NoSQL数据库没有标准的查询语言(SQL)，因此进行数据库查询需要制定数据模型。许多NoSQL数据库都有REST式的数据接口或者查询API。[2]undefined (.sup-anchor name=sup-anchor)  如：Neo4J, InfoGrid, Infinite Graph.
+　　图形结构的数据库同其他行列以及刚性结构的SQL数据库不同，它是使用灵活的图形模型，并且能够扩展到多个服务器上。NoSQL数据库没有标准的查询语言(SQL)，因此进行数据库查询需要制定数据模型。许多NoSQL数据库都有REST式的数据接口或者查询API。[2]  如：Neo4J, InfoGrid, Infinite Graph.
 
-　　因此，我们总结NoSQL数据库在以下的这几种情况下比较适用：1、数据模型比较简单；2、需要灵活性更强的IT系统；3、对数据库性能要求较高；4、不需要高度的数据一致性；5、对于给定key，比较容易映射复杂值的环境。
+　　因此，我们总结NoSQL数据库在以下的这几种情况下比较适用：
+1. 数据模型比较简单；
+2. 需要灵活性更强的IT系统；
+3. 对数据库性能要求较高；
+4. 不需要高度的数据一致性；
+5. 对于给定key，比较容易映射复杂值的环境。
 
 #### NoSQL数据库的四大分类表格分析 
 
 |分类|Examples举例|典型应用场景|数据模型|优点|缺点|
-|--------|--------|--------|--------|
-|键值（key-value）[3]undefined (.sup-anchor name=sup-anchor) |Tokyo Cabinet/Tyrant, Redis, Voldemort, Oracle BDB|内容缓存，主要用于处理大量数据的高访问负载，也用于一些日志系统等等。[3]undefined (.sup-anchor name=sup-anchor) |Key 指向 Value 的键值对，通常用hash table来实现[3]undefined (.sup-anchor name=sup-anchor) |查找速度快|数据无结构化，通常只被当作字符串或者二进制数据[3]undefined (.sup-anchor name=sup-anchor) |
-|列存储数据库[3]undefined (.sup-anchor name=sup-anchor) |Cassandra, HBase, Riak|分布式的文件系统|以列簇式存储，将同一列数据存在一起|查找速度快，可扩展性强，更容易进行分布式扩展|功能相对局限|
-|文档型数据库[3]undefined (.sup-anchor name=sup-anchor) |CouchDB, MongoDb|Web应用（与Key-Value类似，Value是结构化的，不同的是数据库能够了解Value的内容）|Key-Value对应的键值对，Value为结构化数据|数据结构要求不严格，表结构可变，不需要像关系型数据库一样需要预先定义表结构|查询性能不高，而且缺乏统一的查询语法。|
-|图形(Graph)数据库[3]undefined (.sup-anchor name=sup-anchor) |Neo4J, InfoGrid, Infinite Graph|社交网络，推荐系统等。专注于构建关系图谱|图结构|利用图结构相关算法。比如最短路径寻址，N度关系查找等|很多时候需要对整个图做计算才能得出需要的信息，而且这种结构不太好做分布式的集群方案。[3]undefined (.sup-anchor name=sup-anchor) |
+|--------|--------|--------|--------|--------|--------|
+|键值（key-value） |Tokyo Cabinet/Tyrant, Redis, Voldemort, Oracle BDB|内容缓存，主要用于处理大量数据的高访问负载，也用于一些日志系统等等。 |Key 指向 Value 的键值对，通常用hash table来实现 |查找速度快|数据无结构化，通常只被当作字符串或者二进制数据 |
+|列存储数据库 |Cassandra, HBase, Riak|分布式的文件系统|以列簇式存储，将同一列数据存在一起|查找速度快，可扩展性强，更容易进行分布式扩展|功能相对局限|
+|文档型数据库 |CouchDB, MongoDb|Web应用（与Key-Value类似，Value是结构化的，不同的是数据库能够了解Value的内容）|Key-Value对应的键值对，Value为结构化数据|数据结构要求不严格，表结构可变，不需要像关系型数据库一样需要预先定义表结构|查询性能不高，而且缺乏统一的查询语法。|
+|图形(Graph)数据库 |Neo4J, InfoGrid, Infinite Graph|社交网络，推荐系统等。专注于构建关系图谱|图结构|利用图结构相关算法。比如最短路径寻址，N度关系查找等|很多时候需要对整个图做计算才能得出需要的信息，而且这种结构不太好做分布式的集群方案。 |
 
 ### redis 
 
@@ -53,7 +58,7 @@
 
 要在 Ubuntu 上安装 Redis，打开终端，然后输入以下命令：
 
-    $sudo apt-get update
+	$sudo apt-get update
 	$sudo apt-get install redis-server
 
 这将在您的计算机上安装Redis
@@ -73,7 +78,7 @@
 
 在上面的提示信息中：127.0.0.1 是本机的IP地址，6379是 Redis 服务器运行的端口。现在输入 PING 命令，如下图所示：
 
-	redis 127.0.0.1:6379ping
+	redis 127.0.0.1:6379>ping
 	PONG
 
 
@@ -118,7 +123,8 @@ redis-py 的API的使用可以分类为：
 
 	import redis 
 	r =redis.Redis(host='10.211.55.4', port=6379)
-	r.set('foo', 'Bar')printr.get('foo')
+	r.set('foo', 'Bar')
+	print r.get('foo')
 2、连接池
 
 　　redis-py使用connection pool来管理对一个redis server的所有连接，避免每次建立、释放连接的开销。默认，每个Redis实例都会维护一个自己的连接池。可以直接建立一个连接池，然后作为参数Redis，这样就可以实现多个Redis实例共享一个连接池。
@@ -129,7 +135,7 @@ redis-py 的API的使用可以分类为：
 
 redis中的String在在内存中按照一个name对应一个value来存储。如图：
 
-	name　　　　　　　list 
+	name　　　　　　　value 
 	n1　　------>　　'123'
 	n2　　------>　　'abc'
 ```
@@ -139,7 +145,7 @@ set(name, value, ex=None, px=None, nx=False, xx=False)
      ex，过期时间（秒）
      px，过期时间（毫秒）
      nx，如果设置为True，则只有name不存在时，当前set操作才执行
-     xx，如果设置为True，则只有name存在时，岗前set操作才执行
+     xx，如果设置为True，则只有name存在时，当前set操作才执行
 ```
 ```
 setnx(name, value)
@@ -153,7 +159,8 @@ setex(name, value, time)
 ```
 ```
 psetex(name, time_ms, value)
-# 设置值# 参数：    
+# 设置值
+# 参数：    
 	# time_ms，过期时间（数字毫秒 或 timedelta对象）
 ```
 ```	
@@ -162,7 +169,7 @@ mset(*args, **kwargs)
 如：
     mset(k1='v1', k2='v2')
     或
-    mget({'k1': 'v1', 'k2': 'v2'})
+    mset({'k1': 'v1', 'k2': 'v2'})
 ```
 ```
 get(name)
@@ -401,7 +408,7 @@ hscan_iter(name, match=None, count=None)
     # for item in r.hscan_iter('xx'):
     #     print item
 ```
-#### 3. list ####
+#### 3. list 
 
 List操作，redis中的List在在内存中按照一个name对应一个List来存储。如图：　　
 
@@ -421,208 +428,323 @@ lpush(name,values)
 ```
 ```
 lpushx(name,value)
-
-# 在name对应的list中添加元素，只有name已经存在时，值添加到列表的最左边 # 更多：    # rpushx(name, value) 表示从右向左操作
+# 在name对应的list中添加元素，只有name已经存在时，值添加到列表的最左边
+ 
+# 更多：
+    # rpushx(name, value) 表示从右向左操作
 ```
 ```
 llen(name)
-
 # name对应的list元素的个数
 ```
 ```
 linsert(name, where, refvalue, value))
-
-# 在name对应的列表的某一个值前或后插入一个新值 # 参数：    # name，redis的name    # where，BEFORE或AFTER    # refvalue，标杆值，即：在它前后插入数据    # value，要插入的数据
+# 在name对应的列表的某一个值前或后插入一个新值
+ 
+# 参数：
+    # name，redis的name
+    # where，BEFORE或AFTER
+    # refvalue，标杆值，即：在它前后插入数据
+    # value，要插入的数据
 ```
 ```
 r.lset(name, index, value)
-
-# 对name对应的list中的某一个索引位置重新赋值 # 参数：    # name，redis的name    # index，list的索引位置    # value，要设置的值
+# 对name对应的list中的某一个索引位置重新赋值
+ 
+# 参数：
+    # name，redis的name
+    # index，list的索引位置
+    # value，要设置的值
 ```
 ```
 r.lrem(name, value, num)
-
-# 在name对应的list中删除指定的值 # 参数：    # name，redis的name    # value，要删除的值    # num，  num=0，删除列表中所有的指定值；           # num=2,从前到后，删除2个；           # num=-2,从后向前，删除2个
+# 在name对应的list中删除指定的值
+ 
+# 参数：
+    # name，redis的name
+    # value，要删除的值
+    # num，  num=0，删除列表中所有的指定值；
+           # num=2,从前到后，删除2个；
+           # num=-2,从后向前，删除2个
 ```
 ```
 lpop(name)
-
-# 在name对应的列表的左侧获取第一个元素并在列表中移除，返回值则是第一个元素 # 更多：    # rpop(name) 表示从右向左操作
+# 在name对应的列表的左侧获取第一个元素并在列表中移除，返回值则是第一个元素
+ 
+# 更多：
+    # rpop(name) 表示从右向左操作
 ```
 ```
 lindex(name, index)
-
 在name对应的列表中根据索引获取列表元素
-
+```
+```
 lrange(name, start, end)
-
-# 在name对应的列表分片获取数据# 参数：    # name，redis的name    # start，索引的起始位置    # end，索引结束位置
+# 在name对应的列表分片获取数据
+# 参数：
+    # name，redis的name
+    # start，索引的起始位置
+    # end，索引结束位置
 ```
 ```
 ltrim(name, start, end)
-
-# 在name对应的列表中移除没有在start-end索引之间的值# 参数：    # name，redis的name    # start，索引的起始位置    # end，索引结束位置
+# 在name对应的列表中移除没有在start-end索引之间的值
+# 参数：
+    # name，redis的name
+    # start，索引的起始位置
+    # end，索引结束位置
 ```
 ```
 rpoplpush(src, dst)
-
-# 从一个列表取出最右边的元素，同时将其添加至另一个列表的最左边# 参数：    # src，要取数据的列表的name    # dst，要添加数据的列表的name
+# 从一个列表取出最右边的元素，同时将其添加至另一个列表的最左边
+# 参数：
+    # src，要取数据的列表的name
+    # dst，要添加数据的列表的name
 ```
 ```
 blpop(keys, timeout)
-
-# 将多个列表排列，按照从左到右去pop对应列表的元素 # 参数：    # keys，redis的name的集合    # timeout，超时时间，当元素所有列表的元素获取完之后，阻塞等待列表内有数据的时间（秒）, 0 表示永远阻塞 # 更多：    # r.brpop(keys, timeout)，从右向左获取数据
+# 将多个列表排列，按照从左到右去pop对应列表的元素
+ 
+# 参数：
+    # keys，redis的name的集合
+    # timeout，超时时间，当元素所有列表的元素获取完之后，阻塞等待列表内有数据的时间（秒）, 0 表示永远阻塞
+ 
+# 更多：
+    # r.brpop(keys, timeout)，从右向左获取数据
 ```
 ```
 brpoplpush(src, dst, timeout=0)
+# 从一个列表的右侧移除一个元素并将其添加到另一个列表的左侧
+ 
+# 参数：
+    # src，取出并要移除元素的列表对应的name
+    # dst，要插入元素的列表对应的name
+    # timeout，当src对应的列表中没有数据时，阻塞等待其有数据的超时时间（秒），0 表示永远阻塞
 
-# 从一个列表的右侧移除一个元素并将其添加到另一个列表的左侧 # 参数：    # src，取出并要移除元素的列表对应的name    # dst，要插入元素的列表对应的name    # timeout，当src对应的列表中没有数据时，阻塞等待其有数据的超时时间（秒），0 表示永远阻塞
 ```
-#### 4.set集合操作 ####
+#### 4.set集合操作 
 
-#### Set操作，Set集合就是不允许重复的列表
-
+Set操作，Set集合就是不允许重复的列表
+```
 sadd(name,values)
 # name对应的集合中添加元素
-
+```
+```
 scard(name)
 获取name对应的集合中元素个数
-
+```
+```
 sdiff(keys, *args)
 在第一个name对应的集合中且不在其他name对应的集合的元素集合
-
+```
+```
 sdiffstore(dest, keys, *args)
 # 获取第一个name对应的集合中且不在其他name对应的集合，再将其新加入到dest对应的集合中
-
+```
+```
 sinter(keys, *args)
 # 获取多一个name对应集合的并集
-
+```
+```
 sinterstore(dest, keys, *args)
 # 获取多一个name对应集合的并集，再讲其加入到dest对应的集合中
-
+```
+```
 sismember(name, value)
 # 检查value是否是name对应的集合的成员
-
+```
+```
 smembers(name)
 # 获取name对应的集合的所有成员
-
+```
+```
 smove(src, dst, value)
 # 将某个成员从一个集合中移动到另外一个集合
-
+```
+```
 spop(name)
 # 从集合的右侧（尾部）移除一个成员，并将其返回
-
+```
+```
 srandmember(name, numbers)
 # 从name对应的集合中随机获取 numbers 个元素
-
+```
+```
 srem(name, values)
 # 在name对应的集合中删除某些值
-
+```
+```
 sunion(keys, *args)
 # 获取多一个name对应的集合的并集
-
+```
+```
 sunionstore(dest,keys, *args)
 # 获取多一个name对应的集合的并集，并将结果保存到dest对应的集合中
-
+```
+```
 sscan(name, cursor=0, match=None, count=None)
 sscan_iter(name, match=None, count=None)
 # 同字符串的操作，用于增量迭代分批获取元素，避免内存消耗太大
+```
 有序集合，在集合的基础上，为每元素排序；元素的排序需要根据另外一个值来进行比较，所以，对于有序集合，每一个元素有两个值，即：值和分数，分数专门用来做排序。
 
+```
 zadd(name, *args, **kwargs)
-# 在name对应的有序集合中添加元素# 如：     # zadd('zz', 'n1', 1, 'n2', 2)     # 或     # zadd('zz', n1=11, n2=22)
-
+# 在name对应的有序集合中添加元素
+# 如：
+     # zadd('zz', 'n1', 1, 'n2', 2)
+     # 或
+     # zadd('zz', n1=11, n2=22)
+```
+```
 zcard(name)
 # 获取name对应的有序集合元素的数量
-
+```
+```
 zcount(name, min, max)
 # 获取name对应的有序集合中分数 在 [min,max] 之间的个数
-
+```
+```
 zincrby(name, value, amount)
 # 自增name对应的有序集合的 name 对应的分数
-
+```
+```
 r.zrange( name, start, end, desc=False, withscores=False, score_cast_func=float)
-# 按照索引范围获取name对应的有序集合的元素 # 参数：    # name，redis的name    # start，有序集合索引起始位置（非分数）    # end，有序集合索引结束位置（非分数）    # desc，排序规则，默认按照分数从小到大排序    # withscores，是否获取元素的分数，默认只获取元素的值    # score_cast_func，对分数进行数据转换的函数 # 更多：    # 从大到小排序    # zrevrange(name, start, end, withscores=False, score_cast_func=float)     # 按照分数范围获取name对应的有序集合的元素    # zrangebyscore(name, min, max, start=None, num=None, withscores=False, score_cast_func=float)    # 从大到小排序    # zrevrangebyscore(name, max, min, start=None, num=None, withscores=False, score_cast_func=float)
-
+# 按照索引范围获取name对应的有序集合的元素
+ 
+# 参数：
+    # name，redis的name
+    # start，有序集合索引起始位置（非分数）
+    # end，有序集合索引结束位置（非分数）
+    # desc，排序规则，默认按照分数从小到大排序
+    # withscores，是否获取元素的分数，默认只获取元素的值
+    # score_cast_func，对分数进行数据转换的函数
+ 
+# 更多：
+    # 从大到小排序
+    # zrevrange(name, start, end, withscores=False, score_cast_func=float)
+ 
+    # 按照分数范围获取name对应的有序集合的元素
+    # zrangebyscore(name, min, max, start=None, num=None, withscores=False, score_cast_func=float)
+    # 从大到小排序
+    # zrevrangebyscore(name, max, min, start=None, num=None, withscores=False, score_cast_func=float)
+```
+```
 zrank(name, value)
-# 获取某个值在 name对应的有序集合中的排行（从 0 开始） # 更多：    # zrevrank(name, value)，从大到小排序
-
+# 获取某个值在 name对应的有序集合中的排行（从 0 开始）
+ 
+# 更多：
+    # zrevrank(name, value)，从大到小排序
+```
+```
 zrem(name, values)
-# 删除name对应的有序集合中值是values的成员 # 如：zrem('zz', ['s1', 's2'])
-
+# 删除name对应的有序集合中值是values的成员 
+# 如：zrem('zz', ['s1', 's2'])
+```
+```
 zremrangebyrank(name, min, max)
 # 根据排行范围删除
-
+```
+```
 zremrangebyscore(name, min, max)
 # 根据分数范围删除 
-
+```
+```
 zscore(name, value)
 # 获取name对应有序集合中 value 对应的分数
-
+```
+```
 zinterstore(dest, keys, aggregate=None)
-# 获取两个有序集合的交集，如果遇到相同值不同分数，则按照aggregate进行操作# aggregate的值为:  SUM  MIN  MAX
-
+# 获取两个有序集合的交集，如果遇到相同值不同分数，则按照aggregate进行操作
+# aggregate的值为:  SUM  MIN  MAX
+```
+```
 zunionstore(dest, keys, aggregate=None)
-# 获取两个有序集合的并集，如果遇到相同值不同分数，则按照aggregate进行操作# aggregate的值为:  SUM  MIN  MAX
-
+# 获取两个有序集合的并集，如果遇到相同值不同分数，则按照aggregate进行操作
+# aggregate的值为:  SUM  MIN  MAX
+```
+```
 zscan(name, cursor=0, match=None, count=None, score_cast_func=float)
 zscan_iter(name, match=None, count=None,score_cast_func=float)
 # 同字符串相似，相较于字符串新增score_cast_func，用来对分数进行操作
-
-
-
-
-
-#### 其他常用操作 ####
-
+```
+#### 其他常用操作
+```
 delete(*names)
 # 根据删除redis中的任意数据类型
-
+```
+```
 exists(name)
 # 检测redis的name是否存在
-
+```
+```
 keys(pattern='*')
-# 根据模型获取redis的name # 更多：    # KEYS * 匹配数据库中所有 key 。    # KEYS h?llo 匹配 hello ， hallo 和 hxllo 等。    # KEYS h*llo 匹配 hllo 和 heeeeello 等。    # KEYS h[ae]llo 匹配 hello 和 hallo ，但不匹配 hillo
-
+# 根据模型获取redis的name
+ 
+# 更多：
+    # KEYS * 匹配数据库中所有 key 。
+    # KEYS h?llo 匹配 hello ， hallo 和 hxllo 等。
+    # KEYS h*llo 匹配 hllo 和 heeeeello 等。
+    # KEYS h[ae]llo 匹配 hello 和 hallo ，但不匹配 hillo
+```
+```
 expire(name ,time)
 # 为某个redis的某个name设置超时时间
-
+```
+```
 rename(src, dst)
 # 对redis的name重命名为
-
+```
+```
 move(name, db))
 # 将redis的某个值移动到指定的db下
-
+```
+```
 randomkey()
 # 随机获取一个redis的name（不删除）
-
+```
+```
 type(name)
 # 获取name对应值的类型
-
+```
+```
 scan(cursor=0, match=None, count=None)
 scan_iter(match=None, count=None)
 # 同字符串操作，用于增量迭代获取key 
+```
 
-### 管道 ###
+### 管道 
 
 redis-py默认在执行每次请求都会创建（连接池申请连接）和断开（归还连接池）一次连接操作，如果想要在一次请求中指定多个命令，则可以使用pipline实现一次请求指定多个命令，并且默认情况下一次pipline 是原子性操作。
 
-#!/usr/bin/env python# -*- coding:utf-8 -*- import redis pool = redis.ConnectionPool(host='10.211.55.4', port=6379) r = redis.Redis(connection_pool=pool) # pipe = r.pipeline(transaction=False)pipe = r.pipeline(transaction=True) pipe.set('name', 'alex')pipe.set('role', 'sb') pipe.execute() 
+	#!/usr/bin/env python
+	# -*- coding:utf-8 -*-
+	 
+	import redis
+	 
+	pool = redis.ConnectionPool(host='10.211.55.4', port=6379)
+	 
+	r = redis.Redis(connection_pool=pool)
+	 
+	# pipe = r.pipeline(transaction=False)
+	pipe = r.pipeline(transaction=True)
+	 
+	pipe.set('name', 'alex')
+	pipe.set('role', 'sb')
+	 
+	pipe.execute()
 
 
 
 ### 发布订阅 ###
 
-![](../picture/发布订阅模式.png)
-[百度1](http://www.baidu.com/" 百度一下"){:target="_blank"} 
+![](./picture/发布订阅模式.png)
+
 发布者：服务器
 
 订阅者：Dashboad和数据处理
 
 Demo如下：
-
-![](https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif) (#code_img_closed_0c44ff63-5e07-468a-be7a-35cbaccae602 .code_img_closed)![](https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif) (#code_img_opened_0c44ff63-5e07-468a-be7a-35cbaccae602 .code_img_opened style=code_img_opened onclick=code_img_opened)
-
 
 	import redis
 
@@ -631,7 +753,9 @@ Demo如下：
 	    def__init__(self):
 		self.__conn = redis.Redis(host='10.211.55.4')
 		self.chan_sub = 'fm104.5'
-		self.chan_pub = 'fm104.5'def public(self, msg):
+		self.chan_pub = 'fm104.5'
+		
+		def public(self, msg):
 		self.__conn.publish(self.chan_pub, msg)
 		return True
 
@@ -646,48 +770,55 @@ redis helper
 
 订阅者：
 
-#!/usr/bin/env python# -*- coding:utf-8 -*- from monitor.RedisHelper import RedisHelper obj = RedisHelper()redis_sub = obj.subscribe() while True:    msg= redis_sub.parse_response()    print msg
+	#!/usr/bin/env python
+	# -*- coding:utf-8 -*-
+	 
+	from monitor.RedisHelper import RedisHelper
+	 
+	obj = RedisHelper()
+	redis_sub = obj.subscribe()
+	 
+	while True:
+	    msg= redis_sub.parse_response()
+	    print msg
 
 发布者：
 
-#!/usr/bin/env python# -*- coding:utf-8 -*- from monitor.RedisHelper import RedisHelper obj = RedisHelper()obj.public('hello') 
+	#!/usr/bin/env python
+	# -*- coding:utf-8 -*-
+	 
+	from monitor.RedisHelper import RedisHelper
+	 
+	obj = RedisHelper()
+	obj.public('hello')
 
 
 
-更多参见：https://github.com/andymccurdy/redis-py/
+更多参见：[https://github.com/andymccurdy/redis-py/](https://github.com/andymccurdy/redis-py/)
 
-http://doc.redisfans.com/
+[http://doc.redisfans.com/](http://doc.redisfans.com/)
 
+### 什么时候用关系型数据库，什么时候 用NoSQL? 
 
+**在以下情况下转到遗留关系数据库（RDBMS）：**
 
-### 什么时候用关系型数据库，什么时候 用NoSQL? ###
+1. 数据结构良好，适用于关系数据库中的表格排列（行和列）。典型示例：银行帐户信息，客户订单信息，客户信息，员工信息，部门信息等。
+2. 上述观点的另一方面是：面向模式的数据模型。当您为潜在使用RDBMS设计数据模型（表，关系等）时，您需要提出一个定义良好的模式：将有这么多表，每个表都有一组已知的列，用于存储已知的数据键入格式（CHAR，NUMBER，BLOB等）。
+3. 非常重要：考虑数据是否具有交易性质。换句话说，是否将在提供ACID语义的事务的上下文中存储，访问和更新数据，或者是否可以妥协某些/所有这些属性。
+4. 正确性也很重要，任何妥协都是不可接受的。这源于这样一个事实：在大多数NoSQL数据库中，一致性被用于支持性能和可伸缩性（NoSQL数据库上的要点将在下面详述）。
+5. 对于横向扩展架构没有强烈/迫切的需求;数据库，线性扩展（水平扩展）到群集中的多个节点。
+6. 用例不适用于“高速数据摄取”。
+7. 如果客户端应用程序期望快速地将大量数据流入/流出数据库，那么关系数据库可能不是一个好的选择，因为它们并非真正用于扩展写入繁重的工作负载。
+8. 为了实现ACID属性，特别是在编写器（INSERT，UPDATE，DELETE）代码路径中进行了大量额外的后台工作。这肯定会影响性能。
+9. 用例不是“存储数PB范围内的大量数据”。
 
-###   ###
+**在以下情况下使用NoSQL数据库：**
 
-**Go for legacy relational databases (RDBMS) when:**
-
-1. The data is well structured, and lends itself to a tabular arrangement (rows and columns) in a relational database. Typical examples: bank account info, customer order info, customer info, employee info, department info etc etc.
-2. Another aspect of the above point is : schema oriented data model. When you design a data model (tables, relationships etc) for a potential use of RDBMS, you need to come up with a well defined schema: there will be these many tables, each table having a known set of columns that store data in known typed format (CHAR, NUMBER, BLOB etc).
-3. Very Important: Consider whether the data is transactional in nature. In other words, whether the data will be stored, accessed and updated in the context of transactions providing the ACID semantics or is it okay to compromise some/all of these properties.
-4. Correctness is also important and any compromise is _unacceptable_. This stems from the fact that in most NoSQL databases, consistency is traded off in favor of performance and scalability (points on NoSQL databases are elaborated below).
-5. There is no strong/compelling need for a scale out architecture ; a database that linearly scales out (horizontal scaling) to multiple nodes in a cluster.
-6. The use case is not for “high speed data ingestion”.
-7. If the client applications are expecting to quickly stream large amounts of data in/out of the database then relational database may not be a good choice since they are not really designed for scaling write heavy workloads.
-8. In order to achieve ACID properties, lots of additional background work is done especially in writer (INSERT, UPDATE, DELETE) code paths. This definitely affects performance.
-9. The use case is not for “storing enormous amounts of data in the range of petabytes”.
-
-**Go for NoSQL databases when:**
-
-1. There is no fixed (and predetermined) schema that data fits in:
-2. Scalability, Performance (high throughput and low operation latency), Continuous Availability are very important requirements to be met by the underlying architecture of database.
-3. Good choice for “High Speed Data Ingestion”. Such applications (for example IoT style) which generate millions of data points in a second and need a database capable of providing extreme write scalability.
-4. The inherent ability to horizontally scale allows to store large amounts of data across commodity servers in the cluster. They usually use low cost resources, and are able to linearly add compute and storage power as the demand grows.
-
-source page https://www.quora.com/When-should-you-use-NoSQL-vs-regular-RDBMS
-
-
-
-
+1. 数据不适用于固定（和预定）架构：
+2. 可扩展性，性能（高吞吐量和低操作延迟），连续可用性是数据库底层架构必须满足的非常重要的要求。
+3. “高速数据摄取”的良好选择。这样的应用程序（例如IoT样式）在一秒钟内产生数百万个数据点，并且需要能够提供极端写入可伸缩性的数据库。
+4. 水平扩展的固有能力允许在群集中的商用服务器上存储大量数据。它们通常使用低成本资源，并且能够随着需求的增长线性增加计算和存储能力。
+source page [https://www.quora.com/When-should-you-use-NoSQL-vs-regular-RDBMS](https://www.quora.com/When-should-you-use-NoSQL-vs-regular-RDBMS)
 
 ### 附赠redis性能测试 ###
 
@@ -704,7 +835,7 @@ source page https://www.quora.com/When-should-you-use-NoSQL-vs-regular-RDBMS
 　　测试脚本：./redis-benchmark -h xx -p xx -t set -q -r 1000 -l -d 20
 
 |长度|速度/sec|带宽(MByte/s) 发送+接收|CPU|CPU Detail|
-|--------|--------|--------|
+|--------|--------|--------|--------|--------|
 |20Byte|17w|24M+12M|98.00%|Cpu0 : 21.0%us, 40.7%sy, 0.0%ni, 4.3%id, 0.0%wa, 0.0%hi, 34.0%si, 0.0%st|
 |100Byte|17w|37M+12M|97.00%|Cpu0 : 20.3%us, 37.9%sy, 0.0%ni, 7.0%id, 0.0%wa, 0.0%hi, 34.9%si, 0.0%st|
 |512Byte|12w|76M+9M|87.00%|Cpu0 : 20.9%us, 33.2%sy, 0.0%ni, 25.6%id, 0.0%wa, 0.0%hi, 20.3%si, 0.0%st|
