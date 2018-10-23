@@ -1,0 +1,366 @@
+2018-10-23 19:56:22 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: gen_spider)
+2018-10-23 19:56:22 [scrapy.utils.log] INFO: Versions: lxml 4.1.0.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.3 |Anaconda custom (64-bit)| (default, Oct 15 2017, 03:27:45) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 17.2.0 (OpenSSL 1.0.2l  25 May 2017), cryptography 2.0.3, Platform Windows-10-10.0.14393-SP0
+2018-10-23 19:56:22 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'gen_spider', 'LOG_FILE': 'history.log', 'NEWSPIDER_MODULE': 'gen_spider.spiders', 'SPIDER_MODULES': ['gen_spider.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36'}
+2018-10-23 19:56:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-10-23 19:56:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-10-23 19:56:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-10-23 19:56:23 [scrapy.middleware] INFO: Enabled item pipelines:
+['gen_spider.pipelines.ItcastTeacherPipeline',
+ 'gen_spider.pipelines.TencentJobPipeline']
+2018-10-23 19:56:23 [scrapy.core.engine] INFO: Spider opened
+2018-10-23 19:56:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-10-23 19:56:23 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-10-23 19:56:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://hr.tencent.com/position.php> (referer: None)
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '内容编辑类',
+ 'position_href': 'position_detail.php?id=45036&keywords=&tid=0&lid=0',
+ 'position_name': '腾讯体育足球编辑（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45031&keywords=&tid=0&lid=0',
+ 'position_name': '28600-211 微信支付金融业务产品运营经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45032&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-规划项目经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45034&keywords=&tid=0&lid=0',
+ 'position_name': '23671-企鹅号统筹制片人（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45037&keywords=&tid=0&lid=0',
+ 'position_name': 'CSIG车联网Android开发高级工程师(主线)',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '职能类',
+ 'position_href': 'position_detail.php?id=45023&keywords=&tid=0&lid=0',
+ 'position_name': 'SHR-招聘经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '3',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45025&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏平台运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45026&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45027&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:56:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45028&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-高级规划架构师（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:56:24 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-10-23 19:56:24 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 305,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4108,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 10, 23, 11, 56, 24, 887650),
+ 'item_scraped_count': 10,
+ 'log_count/DEBUG': 12,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2018, 10, 23, 11, 56, 23, 598573)}
+2018-10-23 19:56:24 [scrapy.core.engine] INFO: Spider closed (finished)
+2018-10-23 19:57:11 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: gen_spider)
+2018-10-23 19:57:11 [scrapy.utils.log] INFO: Versions: lxml 4.1.0.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.3 |Anaconda custom (64-bit)| (default, Oct 15 2017, 03:27:45) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 17.2.0 (OpenSSL 1.0.2l  25 May 2017), cryptography 2.0.3, Platform Windows-10-10.0.14393-SP0
+2018-10-23 19:57:11 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'gen_spider', 'LOG_FILE': 'history.log', 'NEWSPIDER_MODULE': 'gen_spider.spiders', 'SPIDER_MODULES': ['gen_spider.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36'}
+2018-10-23 19:57:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-10-23 19:57:12 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-10-23 19:57:12 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-10-23 19:57:12 [scrapy.middleware] INFO: Enabled item pipelines:
+['gen_spider.pipelines.ItcastTeacherPipeline',
+ 'gen_spider.pipelines.TencentJobPipeline']
+2018-10-23 19:57:12 [scrapy.core.engine] INFO: Spider opened
+2018-10-23 19:57:12 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-10-23 19:57:12 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-10-23 19:57:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://hr.tencent.com/position.php> (referer: None)
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '内容编辑类',
+ 'position_href': 'position_detail.php?id=45036&keywords=&tid=0&lid=0',
+ 'position_name': '腾讯体育足球编辑（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45031&keywords=&tid=0&lid=0',
+ 'position_name': '28600-211 微信支付金融业务产品运营经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45032&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-规划项目经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45034&keywords=&tid=0&lid=0',
+ 'position_name': '23671-企鹅号统筹制片人（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45037&keywords=&tid=0&lid=0',
+ 'position_name': 'CSIG车联网Android开发高级工程师(主线)',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '职能类',
+ 'position_href': 'position_detail.php?id=45023&keywords=&tid=0&lid=0',
+ 'position_name': 'SHR-招聘经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '3',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45025&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏平台运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45026&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45027&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:57:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45028&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-高级规划架构师（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:57:17 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-10-23 19:57:17 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 305,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4108,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 10, 23, 11, 57, 17, 252940),
+ 'item_scraped_count': 10,
+ 'log_count/DEBUG': 12,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2018, 10, 23, 11, 57, 12, 840903)}
+2018-10-23 19:57:17 [scrapy.core.engine] INFO: Spider closed (finished)
+2018-10-23 19:59:16 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: gen_spider)
+2018-10-23 19:59:16 [scrapy.utils.log] INFO: Versions: lxml 4.1.0.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.3 |Anaconda custom (64-bit)| (default, Oct 15 2017, 03:27:45) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 17.2.0 (OpenSSL 1.0.2l  25 May 2017), cryptography 2.0.3, Platform Windows-10-10.0.14393-SP0
+2018-10-23 19:59:16 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'gen_spider', 'LOG_FILE': 'history.log', 'NEWSPIDER_MODULE': 'gen_spider.spiders', 'SPIDER_MODULES': ['gen_spider.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36'}
+2018-10-23 19:59:16 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2018-10-23 19:59:18 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-10-23 19:59:18 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-10-23 19:59:18 [scrapy.middleware] INFO: Enabled item pipelines:
+['gen_spider.pipelines.ItcastTeacherPipeline',
+ 'gen_spider.pipelines.TencentJobPipeline']
+2018-10-23 19:59:18 [scrapy.core.engine] INFO: Spider opened
+2018-10-23 19:59:18 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-10-23 19:59:18 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-10-23 19:59:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://hr.tencent.com/position.php> (referer: None)
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '内容编辑类',
+ 'position_href': 'position_detail.php?id=45036&keywords=&tid=0&lid=0',
+ 'position_name': '腾讯体育足球编辑（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45031&keywords=&tid=0&lid=0',
+ 'position_name': '28600-211 微信支付金融业务产品运营经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45032&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-规划项目经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45034&keywords=&tid=0&lid=0',
+ 'position_name': '23671-企鹅号统筹制片人（北京）',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45037&keywords=&tid=0&lid=0',
+ 'position_name': 'CSIG车联网Android开发高级工程师(主线)',
+ 'release_time': '2018-10-23',
+ 'work_address': '北京'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '职能类',
+ 'position_href': 'position_detail.php?id=45023&keywords=&tid=0&lid=0',
+ 'position_name': 'SHR-招聘经理（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '3',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45025&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏平台运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45026&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '1',
+ 'position_category': '产品/项目类',
+ 'position_href': 'position_detail.php?id=45027&keywords=&tid=0&lid=0',
+ 'position_name': '26563-游戏社区运营',
+ 'release_time': '2018-10-23',
+ 'work_address': '上海'}
+2018-10-23 19:59:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://hr.tencent.com/position.php>
+{'job_num': '2',
+ 'position_category': '技术类',
+ 'position_href': 'position_detail.php?id=45028&keywords=&tid=0&lid=0',
+ 'position_name': 'TEG10-高级规划架构师（深圳）',
+ 'release_time': '2018-10-23',
+ 'work_address': '深圳'}
+2018-10-23 19:59:18 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-10-23 19:59:18 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 305,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 4108,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 10, 23, 11, 59, 18, 807801),
+ 'item_scraped_count': 10,
+ 'log_count/DEBUG': 12,
+ 'log_count/INFO': 7,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2018, 10, 23, 11, 59, 18, 147185)}
+2018-10-23 19:59:18 [scrapy.core.engine] INFO: Spider closed (finished)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for TalentScoutArticle project
+# Scrapy settings for gen_spider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -8,29 +8,30 @@
 #     https://doc.scrapy.org/en/latest/topics/settings.html
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-import os, sys
 
-BOT_NAME = 'TalentScoutArticle'
+BOT_NAME = 'gen_spider'
 
-SPIDER_MODULES = ['TalentScoutArticle.spiders']
-NEWSPIDER_MODULE = 'TalentScoutArticle.spiders'
+SPIDER_MODULES = ['gen_spider.spiders']
+NEWSPIDER_MODULE = 'gen_spider.spiders'
 
 
+LOG_LEVEL = "DEBUG"
+# LOG_FILE = "history.log"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'TalentScoutArticle (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-# CONCURRENT_REQUESTS = 1
+# CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3
+#DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
+# CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
@@ -48,13 +49,13 @@ DOWNLOAD_DELAY = 3
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'TalentScoutArticle.middlewares.TalentscoutarticleSpiderMiddleware': 543,
+#    'gen_spider.middlewares.GenSpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'TalentScoutArticle.middlewares.TalentscoutarticleDownloaderMiddleware': 543,
+#    'gen_spider.middlewares.GenSpiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -66,22 +67,9 @@ DOWNLOAD_DELAY = 3
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'TalentScoutArticle.pipelines.ToMysqlPipeline': 2,
-   # 'TalentScoutArticle.pipelines.DownPicturePipeline': 300, #不用内置自己写的图片下载器
-   #  'scrapy.pipelines.images.ImagesPipeline': 1,#自带的图片下载器
-    'TalentScoutArticle.pipelines.ExtendImagesPipeline': 3,#自定制的图片下载器
+   'gen_spider.pipelines.ItcastTeacherPipeline': 1,
+   'gen_spider.pipelines.TencentJobPipeline': 2,
 }
-
-# 图片下载如果报错 PIL，则需要安装 pip install pillow
-# ValueError: Missing scheme in request url: h 如果报这个错，
-# 是因为如要传入的图片可能与多张，所以 detial_img 字段要改成列表
-project_dir = os.path.dirname(os.path.abspath(__file__))
-IMAGES_URLS_FIELD = 'detial_img' # 设置图片下载提取的字段
-IMAGES_STORE = os.path.join(project_dir, 'picture')
-# print('----------------->',IMAGES_STORE)
-# 设置最小宽度和高度，小于此值的图片将被过滤掉
-# IMAGES_MIN_HEIGHT = 100
-# IMAGES_MIN_WIDTH = 100
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
