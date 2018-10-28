@@ -14,6 +14,8 @@ BOT_NAME = 'gen_spider'
 SPIDER_MODULES = ['gen_spider.spiders']
 NEWSPIDER_MODULE = 'gen_spider.spiders'
 
+MYSQL_IP = '192.168.99.100'
+MYSQL_PORT = 3306
 
 LOG_LEVEL = "DEBUG"
 # LOG_FILE = "history.log"
@@ -69,6 +71,7 @@ ROBOTSTXT_OBEY = False
 ITEM_PIPELINES = {
    'gen_spider.pipelines.ItcastTeacherPipeline': 1,
    'gen_spider.pipelines.TencentJobPipeline': 2,
+   'gen_spider.pipelines.EpubBookPipeline': 3,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
