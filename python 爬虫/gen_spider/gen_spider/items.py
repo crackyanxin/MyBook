@@ -33,3 +33,10 @@ class EpubBookItem(scrapy.Item):
     url = scrapy.Field()
     classify_id = scrapy.Field()
     classify_name = scrapy.Field()
+
+
+class AmazonClassifyItem(scrapy.Item):
+    '''亚马逊电子书分类'''
+    classify = scrapy.Field()
+    url = scrapy.Field()
+    p_name = scrapy.Field()

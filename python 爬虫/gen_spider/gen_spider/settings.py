@@ -72,6 +72,7 @@ ITEM_PIPELINES = {
    'gen_spider.pipelines.ItcastTeacherPipeline': 1,
    'gen_spider.pipelines.TencentJobPipeline': 2,
    'gen_spider.pipelines.EpubBookPipeline': 3,
+   'gen_spider.pipelines.AmazonClassifyPipeline': 4,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

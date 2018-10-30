@@ -5,5 +5,6 @@ from scrapy import cmdline
 
 
 # cmdline.execute('scrapy crawl tencent_job'.split())
-cmdline.execute('scrapy crawl epub5'.split())
+cmdline.execute('scrapy crawl amazon'.split())
+# cmdline.execute('scrapy crawl epub5'.split())
 # cmdline.execute('scrapy crawl quotes'.split())
