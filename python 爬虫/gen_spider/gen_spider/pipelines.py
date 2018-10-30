@@ -7,7 +7,6 @@
 import json, pymysql, logging
 from gen_spider.items import EpubBookClassifyItem, EpubBookItem
 
-
 logger = logging.getLogger(__name__)
 jstr = __file__.rsplit('\\', 1)[0] + '\\file\\'
 
@@ -45,22 +44,27 @@ class EpubBookPipeline(object):
             self.db = pymysql.connect(host=ip, port=port, user='yan', password="qwer1234",
                                       database='spider_test', charset='utf8')
             self.cursor = self.db.cursor()
+            self.cursor.execute('select classify, id from book_classify')
+            self.classify = dict(self.cursor.fetchall())
 
     def process_item(self, item, spider):
         if spider.name == 'epub5':
             try:
-                if item.isinstance(EpubBookClassifyItem):
-                    insert_sql = 'insert into book_classify values(null,%s,%s);'
-                    self.cursor.execute(insert_sql, dict(item))
-                elif item.isinsstance(EpubBookItem):
-                    pass
-
+                if isinstance(item, EpubBookClassifyItem):
+                    insert_sql = 'insert into book_classify(classify, url) values(%(classify)s,%(url)s);'
+                elif isinstance(item, EpubBookItem):
+                    classify_id = str(self.classify[item['classify_name']])
+                    insert_sql = 'insert into book(book_name, book_author, size, make_date, money, book_description,' \
+                                 'update_time, url, classify_id) values(%(book_name)s,%(book_author)s,%(size)s,' \
+                                 '%(make_date)s,%(money)s,%(book_description)s,now(),%(url)s,' + classify_id + ')'
+                self.cursor.execute(insert_sql, dict(item))
+                self.db.commit()
             except Exception as e:
-                spider.logger.log(e)
+                logger.error(e)
                 self.db.rollback()
         return item
 
     def close_spider(self, spider):
-        if spider.name =='epub5':
+        if spider.name == 'epub5':
             self.cursor.close()
             self.db.close()

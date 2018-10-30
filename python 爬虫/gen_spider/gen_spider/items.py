@@ -25,9 +25,11 @@ class EpubBookClassifyItem(scrapy.Item):
 class EpubBookItem(scrapy.Item):
     '''Epub网站书籍类'''
     book_name = scrapy.Field()
+    book_author = scrapy.Field()
     size = scrapy.Field()
     make_date = scrapy.Field()
     money = scrapy.Field()
     book_description = scrapy.Field()
-    update_time = scrapy.Field()
     url = scrapy.Field()
+    classify_id = scrapy.Field()
+    classify_name = scrapy.Field()
