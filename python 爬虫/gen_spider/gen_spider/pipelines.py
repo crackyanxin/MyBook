@@ -5,10 +5,11 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import json, pymysql, logging
-from gen_spider.items import EpubBookClassifyItem, EpubBookItem, AmazonClassifyItem
+from gen_spider.items import EpubBookClassifyItem, EpubBookItem, AmazonClassifyItem, AmazonBookItem
 
 logger = logging.getLogger(__name__)
 jstr = __file__.rsplit('\\', 1)[0] + '\\file\\'
+
 
 
 class ItcastTeacherPipeline(object):
@@ -74,8 +75,7 @@ class AmazonClassifyPipeline(object):
     def open_spider(self, spider):
         #启动时预先加载所有classify避免后期过度搜索
         spider.mysql_cli.cursor.execute('select classify, id, pid from amazon_book_classify')
-        self.classify = dict(spider.mysql_cli.cursor.fetchall())
-        pass
+        self.classify = spider.mysql_cli.cursor.fetchall()
 
     def process_item(self, item, spider):
         if spider.name == 'amazon':
@@ -84,22 +84,34 @@ class AmazonClassifyPipeline(object):
                     #判断父分类是否存在，如果存在则创建子分类，否则创建父分类
                     insert_sql = None
                     for detail in self.classify:
-                        if item['p_name'] in self.classify:
-                            insert_sql = 'insert into amazon_book_classify(classify, url, pid) values(%(classify)s,%(url)s,%(p_name)s);'
-                            item['p_name'] = detail['pid']
+                        if item['classify'] in detail:
+                            insert_sql = 'ps'
+                            break
+                    if not insert_sql == 'ps':
+                        for detail in self.classify:
+                            if item['p_name'] in detail:
+                                insert_sql = 'insert into amazon_book_classify(classify, url, pid) values(%(classify)s,%(url)s,%(p_name)s);'
+                                item['p_name'] = detail[1]
+                                break
                     if not insert_sql:
                         insert_sql = 'insert into amazon_book_classify(classify, url) values(%(classify)s,%(url)s);'
+                    if not insert_sql == 'ps':
+                        spider.mysql_cli.cursor.execute(insert_sql, dict(item))
+                        spider.mysql_cli.db.commit()
+                        self.open_spider(spider)
+                elif isinstance(item, AmazonBookItem):
+                    for detail in self.classify:
+                        if item['classify_id'] == detail[0]:
+                            item['classify_id'] = detail[1]
+                            break
+
+                    insert_sql = 'insert into amazon_book(book_name, book_author, book_price, publish_date, description,' \
+                                 ' file_size, language, publishing_house, classify_id) values(%(book_name)s,%(book_author)s,' \
+                                 '%(book_price)s,%(publish_date)s,%(description)s,%(file_size)s,' \
+                                 '%(language)s,%(publishing_house)s,%(classify_id)s)'
                     spider.mysql_cli.cursor.execute(insert_sql, dict(item))
                     spider.mysql_cli.db.commit()
-                    self.open_spider(spider)
-                # elif isinstance(item, EpubBookItem):
-                #     classify_id = str(self.classify[item['classify_name']])
-                #     insert_sql = 'insert into book(book_name, book_author, size, make_date, money, book_description,' \
-                #                  'update_time, url, classify_id) values(%(book_name)s,%(book_author)s,%(size)s,' \
-                #                  '%(make_date)s,%(money)s,%(book_description)s,now(),%(url)s,' + classify_id + ')'
-                # self.cursor.execute(insert_sql, dict(item))
-                # self.db.commit()
             except Exception as e:
                 logger.error(e)
-                self.db.rollback()
+                spider.mysql_cli.db.rollback()
         return item

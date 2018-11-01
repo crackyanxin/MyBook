@@ -40,3 +40,16 @@ class AmazonClassifyItem(scrapy.Item):
     classify = scrapy.Field()
     url = scrapy.Field()
     p_name = scrapy.Field()
+
+
+class AmazonBookItem(scrapy.Item):
+    '''亚马逊电子书'''
+    book_name = scrapy.Field()
+    book_author = scrapy.Field()
+    book_price = scrapy.Field()
+    publish_date = scrapy.Field()
+    description = scrapy.Field()
+    file_size = scrapy.Field()
+    language = scrapy.Field()
+    publishing_house = scrapy.Field()
+    classify_id = scrapy.Field()
