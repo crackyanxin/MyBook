@@ -1,0 +1,22 @@
+#ubuntu最精简设置
+#开机进入带网络的cmd命令行模式，关闭屏幕，占用130m内存
+cd /etc/default
+vim grub
+
+修改以下几行：
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash 3"
+GRUB_CMDLINE_LINUX="acpi_osi=Linux acpi_backlight=vendor"
+
+#注释打开
+GRUB_TERMINAL=console
+
+#添加注释
+#GRUB_GFXMODE=1280x800x64
+#GRUB_GFXPAYLOAD_LINUX=keep
+
+#更新grub
+update-grub
+sudo reboot
+
+
+-------------------------------------------------------------------------------------------

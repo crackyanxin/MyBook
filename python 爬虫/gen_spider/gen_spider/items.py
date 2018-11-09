@@ -8,6 +8,11 @@
 import scrapy
 
 
+class TestItem(scrapy.Item):
+    id = scrapy.Field()
+    name = scrapy.Field()
+    description = scrapy.Field()
+
 class TencentJobItem(scrapy.Item):
     '''腾讯招聘'''
     position_href = scrapy.Field()

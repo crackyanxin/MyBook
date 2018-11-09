@@ -1,0 +1,8 @@
+一个原则：千万别更改root用户的信息，2小时换来的教训，资料整理中。。。
+
+#mysql 8.0 开启mysql查询日志方法：
+用root进入mysql
+show variables like "general_log%";
+set global general_log="on";
+
+

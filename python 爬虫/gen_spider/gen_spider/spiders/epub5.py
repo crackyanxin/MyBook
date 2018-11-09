@@ -17,15 +17,15 @@ class Epub5Spider(scrapy.Spider):
                 item['classify'] = book_cls.xpath('.//a/text()').extract_first()
                 item['url'] = book_cls.xpath('.//a/@href').extract_first()
                 yield item
-                # yield response.follow(item['url'], callback=self.parse)
+                yield response.follow(item['url'], callback=self.parse)
             Epub5Spider.classify_count += 1
 
         detail_urls = response.xpath('//ul[contains(@class, "listbody")]/li/a[2]/@href').extract()
-        # for url in detail_urls:
-        #     yield response.follow(url, callback=self.parse_detail)
-        #
-        # next_url = response.xpath('//div[@class="page_list"]/a[text()="下页"]/@href').extract_first()
-        # yield response.follow(next_url, callback=self.parse)
+        for url in detail_urls:
+            yield response.follow(url, callback=self.parse_detail)
+
+        next_url = response.xpath('//div[@class="page_list"]/a[text()="下页"]/@href').extract_first()
+        yield response.follow(next_url, callback=self.parse)
 
 
 

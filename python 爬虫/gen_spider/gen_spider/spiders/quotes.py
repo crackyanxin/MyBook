@@ -1,24 +1,18 @@
-import scrapy
+from scrapy.spiders import XMLFeedSpider
+from gen_spider.items import TestItem
 
+class MySpider(XMLFeedSpider):
+    name = 'quotes'
+    allowed_domains = ['example.com']
+    start_urls = ['http://www.example.com/feed.xml']
+    iterator = 'iternodes'  # This is actually unnecessary, since it's the default value
+    itertag = 'item'
 
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
+    def parse_node(self, response, node):
+        self.logger.info('Hi, this is a <%s> node!: %s', self.itertag, ''.join(node.extract()))
 
-    def start_requests(self):
-        url = 'http://quotes.toscrape.com/'
-        tag = getattr(self, 'tag', None)
-        if tag is not None:
-            url = url + 'tag/' + tag
-            print(url)
-        yield scrapy.Request(url, self.parse)
-
-    def parse(self, response):
-        for quote in response.css('div.quote'):
-            yield {
-                'text': quote.css('span.text::text').extract_first(),
-                'author': quote.css('small.author::text').extract_first(),
-            }
-
-        next_page = response.css('li.next a::attr(href)').extract_first()
-        # if next_page is not None:
-        #     yield response.follow(next_page, self.parse)
+        item = TestItem()
+        item['id'] = node.xpath('@id').extract()
+        item['name'] = node.xpath('name').extract()
+        item['description'] = node.xpath('description').extract()
+        return item

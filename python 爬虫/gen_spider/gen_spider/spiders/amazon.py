@@ -67,5 +67,5 @@ class AmazonSpider(scrapy.Spider):
             yield item
         except Exception as e:
             print(e)
-            with open(item['classify_id']+'.html', 'wb') as f:
-                f.write(response.body)
+            # with open(item['classify_id']+'.html', 'wb') as f:
+            #     f.write(response.body)
